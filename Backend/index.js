@@ -16,14 +16,17 @@ process.on('uncaughtException', (error) => {
 const startServer = async ()=>{
     try {
         await DBConnections();
-        const port = process.env.PORT || 8000;
         const server = app.listen(port, 'localhost', (error) => {
             if (error) {
                 console.error('Failed to start server:', error);
                 return;
             }
-            console.log(`Server is running on port ${port}`);
-            console.log(`Server listening on http://localhost:${port}`);
+            const PORT = process.env.PORT || 5000;
+
+            app.listen(PORT, "0.0.0.0", () => {
+              console.log(`Server running on port ${PORT}`);
+            });
+            
             console.log(`Server address:`, server.address());
         });
         
