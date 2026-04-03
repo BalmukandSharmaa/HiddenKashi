@@ -14,7 +14,7 @@ const app = express();
 
 // CORS configuration
 app.use(cors({
-    origin: ['http://localhost:5173', 'http://localhost:5174'],
+    origin: ['http://localhost:5173', 'http://localhost:5174','https://hidden-kashi.vercel.app/'],
     credentials: true
 }));
 
